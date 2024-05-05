@@ -1,4 +1,4 @@
-import './assets/NavbarJs'
+
 import pokemonImage from './assets/img/pokemon.png';
 function App() {
 
