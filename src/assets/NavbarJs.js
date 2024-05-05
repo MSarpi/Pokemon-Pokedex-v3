@@ -1,18 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // const cloud = document.getElementById("cloud");
     const barraLateral = document.querySelector(".barra-lateral");
     const spans = document.querySelectorAll("span");
     const palanca = document.querySelector(".switch");
     const circulo = document.querySelector(".circulo");
     const menu = document.querySelector(".menu");
     const main = document.querySelector("main");
-  
-    // Verifica si hay un modo oscuro guardado en el almacenamiento local
-    const modoOscuroGuardado = localStorage.getItem("modoOscuro");
-    if (modoOscuroGuardado === "true") {
-      document.body.classList.add("dark-mode");
-      circulo.classList.add("prendido");
-    }
-  
+    
     menu.addEventListener("click",()=>{
         barraLateral.classList.toggle("max-barra-lateral");
         if(barraLateral.classList.contains("max-barra-lateral")){
@@ -31,14 +25,19 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         }
     });
-  
+    
     palanca.addEventListener("click",()=>{
         let body = document.body;
         body.classList.toggle("dark-mode");
+        body.classList.toggle("");
         circulo.classList.toggle("prendido");
-  
-        // Guarda el estado del modo oscuro en el almacenamiento local
-        const modoOscuro = body.classList.contains("dark-mode");
-        localStorage.setItem("modoOscuro", modoOscuro);
     });
+    
+    // cloud.addEventListener("click",()=>{
+    //     barraLateral.classList.toggle("mini-barra-lateral");
+    //     main.classList.toggle("min-main");
+    //     spans.forEach((span)=>{
+    //         span.classList.toggle("oculto");
+    //     });
+    // });
 });
