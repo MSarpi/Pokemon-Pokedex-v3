@@ -1,100 +1,142 @@
-
+import { useState } from "react";
+import { IonIcon } from "@ionic/react";
 import pokemonImage from './assets/img/pokemon.png';
-import './assets/NavbarJs.js' 
+// import './assets/NavbarJs.js' 
 function App() {
 
-  return (
-    <>
-    <div className="menu">
-        <ion-icon name="menu-outline"></ion-icon>
-        <ion-icon name="close-outline"></ion-icon>
-    </div>
-
-    <div className="barra-lateral">
-        <div>
+    const [showMenu, setShowMenu] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
+    const [miniSidebar, setMiniSidebar] = useState(false);
+  
+    const toggleSidebar = () => {
+      setShowMenu(!showMenu);
+      if (!showMenu) {
+        if (window.innerWidth <= 320) {
+          setMiniSidebar(true);
+        }
+      } else {
+        setMiniSidebar(false);
+      }
+    };
+  
+    const toggleDarkMode = () => {
+      setDarkMode(!darkMode);
+    };
+  
+    // const toggleMiniSidebar = () => {
+    //   setMiniSidebar(!miniSidebar);
+    // };
+  
+    return (
+      <div className={`App ${darkMode ? "dark-mode" : ""}`}>
+        <div className="menu" onClick={toggleSidebar}>
+          <IonIcon
+            name={showMenu ? "close-outline" : "menu-outline"}
+            style={{ display: showMenu ? "block" : "none" }}
+          ></IonIcon>
+          <IonIcon
+            name={showMenu ? "menu-outline" : "close-outline"}
+            style={{ display: showMenu ? "none" : "block" }}
+          ></IonIcon>
+        </div>
+  
+        <div className={`barra-lateral ${showMenu ? "max-barra-lateral" : ""} ${miniSidebar ? "mini-barra-lateral" : ""}`}>
+          <div>
             <div className="nombre-pagina">
-                <img src={pokemonImage} width={'100%'} alt="Pokemon" />
+                <img src={pokemonImage} width={'100%'}/>
             </div>
             <button className="boton">
-                <ion-icon name="add-outline"></ion-icon>
-                <span>Create new</span>
+              <IonIcon name="add-outline"></IonIcon>
+              <span>Create new</span>
             </button>
-        </div>
-
-        <nav className="navegacion">
+          </div>
+  
+          <nav className="navegacion">
             <ul>
-                <li>
-                    <a href="#">
-                        <ion-icon name="mail-unread-outline"></ion-icon>
-                        <span>Inbox</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="star-outline"></ion-icon>
-                        <span>Starred</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="paper-plane-outline"></ion-icon>
-                        <span>Sent</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="document-text-outline"></ion-icon>
-                        <span>Drafts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                        <span>Important</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="alert-circle-outline"></ion-icon>
-                        <span>Spam</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="trash-outline"></ion-icon>
-                        <span>Trash</span>
-                    </a>
-                </li>
+              <li>
+                <a id="inbox" href="#">
+                  <IonIcon name="mail-unread-outline"></IonIcon>
+                  <span>Inbox</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="star-outline"></IonIcon>
+                  <span>Starred</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="paper-plane-outline"></IonIcon>
+                  <span>Sent</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="document-text-outline"></IonIcon>
+                  <span>Drafts</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="bookmark-outline"></IonIcon>
+                  <span>Important</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="alert-circle-outline"></IonIcon>
+                  <span>Spam</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <IonIcon name="trash-outline"></IonIcon>
+                  <span>Trash</span>
+                </a>
+              </li>
             </ul>
-        </nav>
-
-        <div>
+          </nav>
+  
+          <div>
             <div className="linea"></div>
-
-            <div className="modo-oscuro">
-                <div className="info">
-                    <ion-icon name="moon-outline"></ion-icon>
-                    <span>Drak Mode</span>
+  
+            <div className="modo-oscuro" onClick={toggleDarkMode}>
+              <div className="info">
+                <IonIcon name="moon-outline"></IonIcon>
+                <span>Drak Mode</span>
+              </div>
+              <div className="switch">
+                <div className={`base ${darkMode ? "dark-mode" : ""}`}>
+                  <div className={`circulo ${darkMode ? "prendido" : ""}`}></div>
                 </div>
-                <div className="switch">
-                    <div className="base">
-                        <div className="circulo">
-                            
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+  
+            <div className="usuario">
+              <img src="/Jhampier.jpg" alt="" />
+              <div className="info-usuario">
+                <div className="nombre-email">
+                  <span className="nombre">Jhampier</span>
+                  <span className="email">jhampier@gmail.com</span>
+                </div>
+                <IonIcon name="ellipsis-vertical-outline"></IonIcon>
+              </div>
+            </div>
+          </div>
         </div>
-
-    </div>
-
-
-    <main>
-        <h1>Contenido</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure nam aliquid debitis voluptatum reiciendis reprehenderit minus, et sed hic suscipit facilis enim totam. Nesciunt eveniet velit modi voluptates temporibus?</p>
+  
+        <main className={miniSidebar ? "min-main" : ""}>
+          <h1>Contenido</h1>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure nam aliquid
+            debitis voluptatum reiciendis reprehenderit minus, et sed hic suscipit facilis enim
+            totam. Nesciunt eveniet velit modi voluptates temporibus?
+          </p>
+          {/* Repeat the paragraph content to fill the page */}
         </main>
-    </>
-  )
+      </div>
+    );
 }
 
 export default App
