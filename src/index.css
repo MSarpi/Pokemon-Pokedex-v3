@@ -55,7 +55,7 @@ html body .container-light  {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+  /* font-family: 'Outfit', sans-serif; */
 }
 
 body{
@@ -64,6 +64,9 @@ body{
   background-color: rgb(155, 155, 155);
 }
 
+ol, ul {
+  margin-left: -1rem !important;
+}
 /*-----------------Menu*/
 .menu{
   position: fixed;

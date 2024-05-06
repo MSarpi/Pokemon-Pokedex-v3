@@ -53,10 +53,10 @@ export default function Navbar() {
               <img src={pokemonImage} width={"100%"} alt="pokemon" />
             </div>
             {/* <hr/> */}
-            {/* <button className="boton">
+            <button className="boton">
               <ion-icon name="search"></ion-icon>
               <span>Buscar</span>
-            </button> */}
+            </button>
           </div>
 
           <nav className="navegacion">
