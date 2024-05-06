@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IonIcon } from "@ionic/react";
+// import { IonIcon } from "@ionic/react";
 import pokemonImage from './assets/img/pokemon.png';
 // import './assets/NavbarJs.js' 
 function App() {
@@ -30,14 +30,8 @@ function App() {
     return (
       <div className={`App ${darkMode ? "dark-mode" : ""}`}>
         <div className="menu" onClick={toggleSidebar}>
-          <IonIcon
-            name={showMenu ? "close-outline" : "menu-outline"}
-            style={{ display: showMenu ? "block" : "none" }}
-          ></IonIcon>
-          <IonIcon
-            name={showMenu ? "menu-outline" : "close-outline"}
-            style={{ display: showMenu ? "none" : "block" }}
-          ></IonIcon>
+            <ion-icon name={showMenu ? "close-outline" : "menu-outline"}></ion-icon>
+            {/* <ion-icon name={showMenu ? "menu-outline" : "close-outline"}></ion-icon> */}
         </div>
   
         <div className={`barra-lateral ${showMenu ? "max-barra-lateral" : ""} ${miniSidebar ? "mini-barra-lateral" : ""}`}>
@@ -46,8 +40,8 @@ function App() {
                 <img src={pokemonImage} width={'100%'}/>
             </div>
             <button className="boton">
-              <IonIcon name="add-outline"></IonIcon>
-              <span>Create new</span>
+              {/* <IonIcon name="add-outline"></IonIcon> */}
+              <span>Buscar</span>
             </button>
           </div>
   
@@ -55,43 +49,43 @@ function App() {
             <ul>
               <li>
                 <a id="inbox" href="#">
-                  <IonIcon name="mail-unread-outline"></IonIcon>
+                  {/* <IonIcon name="mail-unread-outline"></IonIcon> */}
                   <span>Inbox</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="star-outline"></IonIcon>
+                  {/* <IonIcon name="star-outline"></IonIcon> */}
                   <span>Starred</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="paper-plane-outline"></IonIcon>
+                  {/* <IonIcon name="paper-plane-outline"></IonIcon> */}
                   <span>Sent</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="document-text-outline"></IonIcon>
+                  {/* <IonIcon name="document-text-outline"></IonIcon> */}
                   <span>Drafts</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="bookmark-outline"></IonIcon>
+                  {/* <IonIcon name="bookmark-outline"></IonIcon> */}
                   <span>Important</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="alert-circle-outline"></IonIcon>
+                  {/* <IonIcon name="alert-circle-outline"></IonIcon> */}
                   <span>Spam</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <IonIcon name="trash-outline"></IonIcon>
+                  {/* <IonIcon name="trash-outline"></IonIcon> */}
                   <span>Trash</span>
                 </a>
               </li>
@@ -103,24 +97,13 @@ function App() {
   
             <div className="modo-oscuro" onClick={toggleDarkMode}>
               <div className="info">
-                <IonIcon name="moon-outline"></IonIcon>
+                {/* <IonIcon name="moon-outline"></IonIcon> */}
                 <span>Drak Mode</span>
               </div>
               <div className="switch">
                 <div className={`base ${darkMode ? "dark-mode" : ""}`}>
                   <div className={`circulo ${darkMode ? "prendido" : ""}`}></div>
                 </div>
-              </div>
-            </div>
-  
-            <div className="usuario">
-              <img src="/Jhampier.jpg" alt="" />
-              <div className="info-usuario">
-                <div className="nombre-email">
-                  <span className="nombre">Jhampier</span>
-                  <span className="email">jhampier@gmail.com</span>
-                </div>
-                <IonIcon name="ellipsis-vertical-outline"></IonIcon>
               </div>
             </div>
           </div>

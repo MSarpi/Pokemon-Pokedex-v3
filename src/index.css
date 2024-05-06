@@ -1,31 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");body {font-family: "Poppins", sans-serif !important;}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+body {font-family: "Poppins", sans-serif !important;}
 
 html body .container-light  {
-    max-width: 100%;
-    overflow-x: hidden;
-    scroll-behavior:smooth; 
-    background-color: #ededed !important;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior:smooth; 
+  background-color: #ededed !important;
 }
 
 :root{
-  --color-barra-lateral:rgb(255,255,255);
+  --color-barra-lateral:rgb(255,255,255); /*Color barra lateral*/
 
-  --color-texto:rgb(0,0,0);
-  --color-texto-menu:rgb(134,136,144);
+  --color-texto:rgb(0,0,0); /*Color barra lateral*/
+  --color-texto-menu:rgb(134,136,144); /*Color palabra drakmode*/
 
-  --color-menu-hover:rgb(238,238,238);
-  --color-menu-hover-texto:rgb(0,0,0);
+  --color-menu-hover:rgb(238,238,238); /*Hover menu opciones*/
+  --color-menu-hover-texto:rgb(0,0,0); /*hover palabra menu opciones*/
 
-  --color-boton:rgb(0,0,0);
-  --color-boton-texto:rgb(255,255,255);
+  --color-boton:rgb(0,0,0); /*Color boton buscar*/
+  --color-boton-texto:rgb(255,255,255); /*Color texto boton buscar*/
 
-  --color-linea:rgb(180,180,180);
+  --color-linea:rgb(180,180,180); /*Color HR*/
 
-  --color-switch-base :rgb(201,202,206);
-  --color-switch-circulo:rgb(241,241,241);
+  --color-switch-base :rgb(201,202,206); /*Color fondo switch*/
+  --color-switch-circulo:rgb(241,241,241); /*Color switch*/
 
-  --color-scroll:rgb(192,192,192);
-  --color-scroll-hover:rgb(134,134,134);
+  --color-scroll:rgb(192,192,192); /*Color scroll*/
+  --color-scroll-hover:rgb(134,134,134); /*Color hover scroll*/
 }
 
 .dark-mode{
@@ -60,7 +61,7 @@ html body .container-light  {
 body{
   height: 100vh;
   width: 100%;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(155, 155, 155);
 }
 
 /*-----------------Menu*/
@@ -96,6 +97,7 @@ body{
   background-color: var(--color-barra-lateral);
   transition: width 0.5s ease,background-color 0.3s ease,left 0.5s ease;
   z-index: 50;
+  /* border: 5px rgb(0, 18, 175) solid; */
 }
 
 .mini-barra-lateral{
