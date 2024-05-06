@@ -1,4 +1,5 @@
 import imgHome from '../assets/img/pokemon/home.png';
+import imgHome_darkmode from '../assets/img/pokemon/home_darkmode.png';
 import imgPokemon1 from '../assets/img/pokemon/gen_1.png';
 import imgPokemon1_darkmode from '../assets/img/pokemon/gen_1_darkmode.png';
 import imgPokemon2 from '../assets/img/pokemon/gen_2.png';
@@ -24,6 +25,7 @@ const links = [
     width: "20%",
     name: "Home",
     legendary: imgHome,
+    legendary2: imgHome_darkmode,
     href: "/",
   },
   {
