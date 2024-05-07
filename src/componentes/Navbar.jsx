@@ -5,18 +5,20 @@ import pokemonImage from '../assets/img/pokemon.png';
 import Home from '../screens/Home'
 import Generacion_1 from '../screens/Generacion_1'
 import Generacion_2 from '../screens/Generacion_2'
+import Buscador from "./buscador/Buscador";
 
 export default function Navbar() {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("darkMode") === "true" ? true : false
-  );
-  const [miniSidebar, setMiniSidebar] = useState(false);
+  const [darkMode, setDarkMode] = useState(false); // Inicialmente se establece como falso
 
   useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
+    // Leer el valor del localStorage al cargar el componente
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(isDarkMode);
+  }, []); // Se ejecuta solo una vez al montar el componente
+
+  const [miniSidebar, setMiniSidebar] = useState(false);
 
   const toggleSidebar = () => {
     setShowMenu(!showMenu);
@@ -30,9 +32,11 @@ export default function Navbar() {
   };
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    // Guardar el modo en localStorage
+    localStorage.setItem("darkMode", newMode);
   };
-
 
   return (
     <>
@@ -49,14 +53,10 @@ export default function Navbar() {
           } ${miniSidebar ? "mini-barra-lateral" : ""}`}
         >
           <div>
-            <div className="nombre-pagina">
+            <div className="nombre-pagina mt-3">
               <img src={pokemonImage} width={"100%"} alt="pokemon" />
             </div>
-            {/* <hr/> */}
-            <button className="boton">
-              <ion-icon name="search"></ion-icon>
-              <span>Buscar</span>
-            </button>
+            <Buscador/>
           </div>
 
           <nav className="navegacion">
@@ -66,20 +66,16 @@ export default function Navbar() {
                   onClick={toggleSidebar}
                   key={nav.id}
                   to={nav.href}
-                  className={location.pathname === nav.href ? "active" : ""}
+                  className={location.pathname === nav.href ? "active mb-2" : "mb-2"}
                 >
-                  <img src={darkMode && nav.legendary2 ? nav.legendary2 : nav.legendary} 
-                    width={nav.width} 
-                    alt={nav.name}  />
-                  {nav.name}
+                  <img
+                    src={darkMode && nav.legendary2 ? nav.legendary2 : nav.legendary}
+                    width={nav.width}
+                    alt={nav.name}
+                  />
+                  <span className="p-2">{nav.name}</span>
                 </Link>
               ))}
-              {/* <li>
-                <a href="#">
-                  <ion-icon name="mail-unread-outline"></ion-icon>
-                  <span>Inbox</span>
-                </a>
-              </li> */}
             </ul>
           </nav>
 
@@ -88,14 +84,14 @@ export default function Navbar() {
 
             <div className="modo-oscuro" onClick={toggleDarkMode}>
               <div className="info">
-                <span>Drak Mode</span>
+                <span>Dark Mode</span>
               </div>
               <div className="switch">
                 <div className={`base ${darkMode ? "dark-mode" : ""}`}>
                   <div
                     className={`circulo ${darkMode ? "prendido" : ""}`}
                   ></div>
-                 </div>
+                </div>
               </div>
             </div>
           </div>
