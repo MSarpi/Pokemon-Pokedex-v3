@@ -2,11 +2,8 @@ import { Route, Routes, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import links from "../data/links";
 import pokemonImage from '../assets/img/pokemon.png';
-import Home from '../screens/Home'
-import Generacion_1 from '../screens/Generacion_1'
-import Generacion_2 from '../screens/Generacion_2'
 import Buscador from "./buscador/Buscador";
-
+import "../data/links"
 export default function Navbar() {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
@@ -99,9 +96,8 @@ export default function Navbar() {
 
         <main className={miniSidebar ? "min-main" : ""}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Generacion_1" element={<Generacion_1 />} />
-            <Route path="/Generacion_2" element={<Generacion_2 />} />
+            {links.map(rutas =>(
+              <Route key={rutas.id} path={rutas.href} element={<rutas.component/>}/>))}
           </Routes>
         </main>
       </div>

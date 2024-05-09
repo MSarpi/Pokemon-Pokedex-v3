@@ -19,6 +19,10 @@ import imgPokemon8_darkmode from '../assets/img/pokemon/gen_8_darkmode.png';
 import imgPokemon9 from '../assets/img/pokemon/gen_9.png';
 import imgPokemon9_darkmode from '../assets/img/pokemon/gen_9_darkmode.png';
 
+import Home from '../screens/Home';
+import Generacion_1 from '../screens/Generacion_1';
+import Generacion_2 from '../screens/Generacion_2';
+
 const links = [
   {
     id: 1,
@@ -27,6 +31,7 @@ const links = [
     legendary: imgHome,
     legendary2: imgHome_darkmode,
     href: "/",
+    component: Home
   },
   {
     id: 2,
@@ -35,6 +40,7 @@ const links = [
     legendary: imgPokemon1,
     legendary2: imgPokemon1_darkmode,
     href: "/Generacion_1",
+    component: Generacion_1 
   },
   {
     id: 3,
@@ -43,6 +49,7 @@ const links = [
     legendary: imgPokemon2_darkmode,
     legendary2: imgPokemon2,
     href: "/Generacion_2",
+    component: Generacion_2
   },
   {
     id: 4,

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import { getPokemonList } from "../../assets/conexion/apiPokemon";
+import PokemonModal from "../modal/ModalPokemon"; // Importa el componente del modal
 
 export default function Buscador() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -18,32 +19,30 @@ export default function Buscador() {
     setSelectedPokemon(selectedOption);
   };
 
-  const handleSearch = () => {
-    if (selectedPokemon) {
-      // Aquí puedes hacer algo con el Pokemon seleccionado
-      alert("Seleccionaste: " + selectedPokemon.label);
-    }
-  };
-
-  const options = pokemonList.map((pokemon) => {
-    const id = pokemon.url.split("/")[6];
-    return { value: id, label: `N° ${id} - ${pokemon.name}` };
-  });
-
   return (
     <>
       <Select
-        options={options}
+        options={pokemonList.map((pokemon) => ({
+          value: pokemon.url.split("/")[6],
+          label: `N° ${pokemon.url.split("/")[6]} - ${pokemon.name}`,
+        }))}
         onChange={handleSelectChange}
         value={selectedPokemon}
         placeholder="Select Pokemon"
         className="mb-2"
         menuPosition="fixed"
       />
-      <button className="boton" onClick={handleSearch}>
+      <button className="boton" onClick={() => setSelectedPokemon(selectedPokemon)}>
         <ion-icon name="search"></ion-icon>
         <span>Buscar</span>
       </button>
+
+      {selectedPokemon && (
+        <PokemonModal
+          selectedPokemon={selectedPokemon}
+          onClose={() => setSelectedPokemon(null)}
+        />
+      )}
     </>
   );
 }
