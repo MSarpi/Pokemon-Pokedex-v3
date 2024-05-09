@@ -4,35 +4,41 @@ import links from "../data/links";
 import pokemonImage from '../assets/img/pokemon.png';
 import Buscador from "./buscador/Buscador";
 import "../data/links"
+
 export default function Navbar() {
   const location = useLocation();
-  const [showMenu, setShowMenu] = useState(false);
+  const [sidebar, setSidebar] = useState({
+    showMenu: false,
+    miniSidebar: localStorage.getItem("miniSidebar") === "true"
+  });
   const [darkMode, setDarkMode] = useState(false); // Inicialmente se establece como falso
 
   useEffect(() => {
-    // Leer el valor del localStorage al cargar el componente
     const isDarkMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(isDarkMode);
-  }, []); // Se ejecuta solo una vez al montar el componente
-
-  const [miniSidebar, setMiniSidebar] = useState(false);
+  }, []);
 
   const toggleSidebar = () => {
-    setShowMenu(!showMenu);
-    if (!showMenu) {
-      if (window.innerWidth <= 320) {
-        setMiniSidebar(true);
-      }
-    } else {
-      setMiniSidebar(false);
-    }
+    setSidebar({
+      ...sidebar,
+      showMenu: !sidebar.showMenu,
+      miniSidebar: window.innerWidth <= 320 ? true : sidebar.miniSidebar
+    });
   };
 
   const toggleDarkMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
-    // Guardar el modo en localStorage
     localStorage.setItem("darkMode", newMode);
+  };
+
+  const toggleMiniSidebar = () => {
+    const newMiniSidebar = !sidebar.miniSidebar;
+    setSidebar({
+      ...sidebar,
+      miniSidebar: newMiniSidebar
+    });
+    localStorage.setItem("miniSidebar", newMiniSidebar);
   };
 
   return (
@@ -40,38 +46,40 @@ export default function Navbar() {
       <div className={`App ${darkMode ? "dark-mode" : ""}`}>
         <div className="menu" onClick={toggleSidebar}>
           <ion-icon
-            name={showMenu ? "close-outline" : "menu-outline"}
+            name={sidebar.showMenu ? "close-outline" : "menu-outline"}
           ></ion-icon>
         </div>
 
         <div
           className={`barra-lateral ${
-            showMenu ? "max-barra-lateral" : ""
-          } ${miniSidebar ? "mini-barra-lateral" : ""}`}
+            sidebar.showMenu ? "max-barra-lateral" : ""
+          } ${sidebar.miniSidebar ? "mini-barra-lateral" : ""}`}
         >
+          <div className="nombre-pagina mt-3 d-flex align-items-center">
+            <img src={pokemonImage} width={"100%"} alt="pokemon"  onClick={toggleMiniSidebar}/>
+          </div>
           <div>
-            <div className="nombre-pagina mt-3">
-              <img src={pokemonImage} width={"100%"} alt="pokemon" />
-            </div>
-            <Buscador/>
+            <Buscador miniSidebar={sidebar.miniSidebar} />
           </div>
 
-          <nav className="navegacion">
+          <div className="linea"></div>
+          <nav className="navegacion mt-3">
             <ul>
               {links.map((nav) => (
-                <Link
-                  onClick={toggleSidebar}
-                  key={nav.id}
-                  to={nav.href}
-                  className={location.pathname === nav.href ? "active mb-2" : "mb-2"}
-                >
-                  <img
-                    src={darkMode && nav.legendary2 ? nav.legendary2 : nav.legendary}
-                    width={nav.width}
-                    alt={nav.name}
-                  />
-                  <span className="p-2">{nav.name}</span>
-                </Link>
+                <li key={nav.id}>
+                  <Link
+                    onClick={toggleSidebar}
+                    to={nav.href}
+                    className={location.pathname === nav.href ? "active mb-2" : "mb-2"}
+                  >
+                    <img
+                      src={darkMode && nav.legendary2 ? nav.legendary2 : nav.legendary}
+                      width={sidebar.miniSidebar ? "100%" : nav.width}
+                      alt={nav.name}
+                    />
+                    {!sidebar.miniSidebar && <span className="p-2">{nav.name}</span>}
+                  </Link>
+                </li>
               ))}
             </ul>
           </nav>
@@ -94,10 +102,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        <main className={miniSidebar ? "min-main" : ""}>
+        <main className={sidebar.miniSidebar ? "min-main" : ""}>
           <Routes>
-            {links.map(rutas =>(
-              <Route key={rutas.id} path={rutas.href} element={<rutas.component/>}/>))}
+            {links.map((ruta) => (
+              <Route key={ruta.id} path={ruta.href} element={<ruta.component />} />
+            ))}
           </Routes>
         </main>
       </div>

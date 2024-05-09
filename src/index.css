@@ -61,25 +61,39 @@ html body .container-light  {
   display: none;
 }
 
-.overlay{
-  top: 50%;
-  left: 55%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  transform: translate(-55%, -50%);
-  width: 50%;
+.main-home{
+  width: 100%;
 }
 
-.img-home{
-  width: 100%;
-  background-attachment: fixed;
+.img-home {
+  background-image: url('./assets/img/background.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; /* Cambiar 'cover' a 'auto' */
   height: 100vh;
 }
 
+.buscador-pokemon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-logo {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover; /* Cambiar 'cover' a 'auto' */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  z-index: 1; /* Asegúrate de que el logo esté sobre la imagen de fondo */
+}
+
+.logo-pokemon {
+  max-width: 100%;
+}
 body{
   width: 100%;
   background-color: #ededed;
@@ -337,27 +351,15 @@ main.min-main{
 }
 
 @media (max-width: 1600px){
-  .overlay{
-    transform: translate(-40%, -50%);
-    width: 70%;
-  }
+
   
 }
 
 @media (max-width: 1100px){
-  .overlay{
-    transform: translate(-36%, -50%);
-    width: 60%;
-  }
+
   
 }
 
-@media (max-width: 1100px){
-  .overlay{
-    transform: translate(-25%, -50%);
-    width: 60%;
-  }
-}
 
 
 /*------------------> Responsive*/
@@ -379,11 +381,13 @@ main.min-main{
   transform: translate(-50%, -50%);
   width: 50%;
 } */
+
+@media (max-width: 768px){
+
+}
+
 @media (max-width: 600px){
-  .overlay{
-    transform: translate(-58%, -50%);
-    width: 90%;
-  }
+
   .barra-lateral{
       position: fixed;
       left: -320px;
