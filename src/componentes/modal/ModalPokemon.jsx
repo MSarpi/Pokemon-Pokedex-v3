@@ -21,7 +21,7 @@ export default function PokemonModal({ selectedPokemon, onClose }) {
   }, [selectedPokemon]);
 
   return (
-    <Modal show={selectedPokemon !== null} onHide={onClose}>
+    <Modal size="xl" show={selectedPokemon !== null} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>
           {loading ? (

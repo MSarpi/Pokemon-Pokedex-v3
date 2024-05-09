@@ -2,10 +2,15 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import { getPokemonList } from "../../assets/conexion/apiPokemon";
 import PokemonModal from "../modal/ModalPokemon"; // Importa el componente del modal
+import ModalAlert from "../modal/ModalAlert";
 
 export default function Buscador() {
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [showAlert, setShowAlert] = useState(false); // Estado para controlar si se muestra el modal de alerta
+
+  const handleShowModalAlert = () => setShowAlert(true);
+  const handleCloseModalAlert = () => setShowAlert(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,6 +22,14 @@ export default function Buscador() {
 
   const handleSelectChange = (selectedOption) => {
     setSelectedPokemon(selectedOption);
+  };
+
+  const handleSearch = () => {
+    if (!selectedPokemon) {
+      setShowAlert(true); // Mostrar el modal de alerta si no se ha seleccionado ningún Pokémon
+    } else {
+      setShowAlert(false);
+    }
   };
 
   return (
@@ -32,10 +45,12 @@ export default function Buscador() {
         className="mb-2"
         menuPosition="fixed"
       />
-      <button className="boton" onClick={() => setSelectedPokemon(selectedPokemon)}>
+      <button className="boton" onClick={handleSearch}>
         <ion-icon name="search"></ion-icon>
         <span>Buscar</span>
       </button>
+
+      {showAlert && <ModalAlert show={handleShowModalAlert} handleClose={handleCloseModalAlert} />} {/* Mostrar el modal de alerta si showAlert es true */}
 
       {selectedPokemon && (
         <PokemonModal

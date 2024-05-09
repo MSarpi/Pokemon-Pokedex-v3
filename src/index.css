@@ -61,7 +61,18 @@ html body .container-light  {
   display: none;
 }
 
+.overlay{
+  top: 50%;
+  left: 55%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  transform: translate(-55%, -50%);
+  width: 50%;
+}
+
 .img-home{
+  width: 100%;
   background-attachment: fixed;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -317,7 +328,7 @@ ol, ul {
 }
 
 main{
-  margin-left: 320px;
+  margin-left: 300px;
   /* padding: 20px;
   transition: margin-left 0.5s ease; */
 }
@@ -325,6 +336,28 @@ main.min-main{
   margin-left: 80px;
 }
 
+@media (max-width: 1600px){
+  .overlay{
+    transform: translate(-40%, -50%);
+    width: 70%;
+  }
+  
+}
+
+@media (max-width: 1100px){
+  .overlay{
+    transform: translate(-36%, -50%);
+    width: 60%;
+  }
+  
+}
+
+@media (max-width: 1100px){
+  .overlay{
+    transform: translate(-25%, -50%);
+    width: 60%;
+  }
+}
 
 
 /*------------------> Responsive*/
@@ -336,7 +369,21 @@ main.min-main{
       margin-bottom: 3px;
   }
 }
+
+/* .overlay{
+  top: 50%;
+  left: 55%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 50%;
+} */
 @media (max-width: 600px){
+  .overlay{
+    transform: translate(-58%, -50%);
+    width: 90%;
+  }
   .barra-lateral{
       position: fixed;
       left: -320px;
