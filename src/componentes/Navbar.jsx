@@ -2,6 +2,7 @@ import { Route, Routes, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import links from "../data/links";
 import pokemonImage from '../assets/img/pokemon.png';
+import pokeball from '../assets/img/pokebola.png'
 import Buscador from "./buscador/Buscador";
 import "../data/links"
 
@@ -57,7 +58,7 @@ export default function Navbar() {
         >
         {sidebar.miniSidebar ? (
           <div className="nombre-pagina-2">
-            <img src={pokemonImage} width={"110%"} alt="pokemon" />
+            <img src={pokeball} width={"110%"} alt="pokemon" />
             <span className="btn-arrow-open" onClick={toggleMiniSidebar}>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
