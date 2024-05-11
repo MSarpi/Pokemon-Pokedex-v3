@@ -58,7 +58,7 @@ export default function Navbar() {
         >
         {sidebar.miniSidebar ? (
           <div className="nombre-pagina-2">
-            <img src={pokeball} width={"110%"} alt="pokemon" />
+            <img src={pokeball} width={"110%"} alt="pokemon" onClick={toggleMiniSidebar}/>
             <span className="btn-arrow-open" onClick={toggleMiniSidebar}>
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
