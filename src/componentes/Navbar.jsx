@@ -7,6 +7,7 @@ import Buscador from "./buscador/Buscador";
 import "../data/links"
 
 export default function Navbar() {
+
   const location = useLocation();
   const [sidebar, setSidebar] = useState({
     showMenu: false,

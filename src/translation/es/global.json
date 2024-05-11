@@ -1,0 +1,22 @@
+{
+    "navbar_header": {
+        "select": "Nombre Pokemon o ID",
+        "search": "Buscar"
+    },
+    "navbar_body": {
+        "home": "Inicio",
+        "generation_1": "Generación I",
+        "generation_2": "Generación II",
+        "generation_3": "Generación III",
+        "generation_4": "Generación IV",
+        "generation_5": "Generación V",
+        "generation_6": "Generación VI",
+        "generation_7": "Generación VII",
+        "generation_8": "Generación VIII",
+        "generation_9": "Generación IX"        
+    },
+    "navbar_footer":{
+        "dark_mode": "Modo Oscuro",
+        "select_language": "Selecciona idioma"
+    }
+}

@@ -5,6 +5,8 @@ import PokemonModal from "../modal/ModalPokemon"; // Importa el componente del m
 import ModalAlert from "../modal/ModalAlert";
 
 export default function Buscador({ miniSidebar }) {
+
+
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [showAlert, setShowAlert] = useState(false); 
@@ -50,7 +52,7 @@ export default function Buscador({ miniSidebar }) {
       {!miniSidebar && (
         <button className="boton" onClick={handleSearch}>
           <ion-icon name="search"></ion-icon>
-          <span>Buscar</span>
+          <span>search</span>
         </button>
       )}
       

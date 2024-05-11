@@ -1,34 +1,6 @@
-import imgHome from '../assets/img/pokemon/home.png';
-import imgHome_darkmode from '../assets/img/pokemon/home_darkmode.png';
-import imgPokemon1 from '../assets/img/pokemon/gen_1.png';
-import imgPokemon1_darkmode from '../assets/img/pokemon/gen_1_darkmode.png';
-import imgPokemon2 from '../assets/img/pokemon/gen_2.png';
-import imgPokemon2_darkmode from '../assets/img/pokemon/gen_2_darkmode.png';
-import imgPokemon3 from '../assets/img/pokemon/gen_3.png';
-import imgPokemon3_darkmode from '../assets/img/pokemon/gen_3_darkmode.png';
-import imgPokemon4 from '../assets/img/pokemon/gen_4.png';
-import imgPokemon4_darkmode from '../assets/img/pokemon/gen_4_darkmode.png';
-import imgPokemon5 from '../assets/img/pokemon/gen_5.png';
-import imgPokemon5_darkmode from '../assets/img/pokemon/gen_5_darkmode.png';
-import imgPokemon6 from '../assets/img/pokemon/gen_6.png';
-import imgPokemon6_darkmode from '../assets/img/pokemon/gen_6_darkmode.png';
-import imgPokemon7 from '../assets/img/pokemon/gen_7.png';
-import imgPokemon7_darkmode from '../assets/img/pokemon/gen_7_darkmode.png';
-import imgPokemon8 from '../assets/img/pokemon/gen_8.png';
-import imgPokemon8_darkmode from '../assets/img/pokemon/gen_8_darkmode.png';
-import imgPokemon9 from '../assets/img/pokemon/gen_9.png';
-import imgPokemon9_darkmode from '../assets/img/pokemon/gen_9_darkmode.png';
+import { imgHome, imgHome_darkmode, imgPokemon1, imgPokemon1_darkmode, imgPokemon2, imgPokemon2_darkmode, imgPokemon3, imgPokemon3_darkmode, imgPokemon4, imgPokemon4_darkmode, imgPokemon5, imgPokemon5_darkmode, imgPokemon6, imgPokemon6_darkmode, imgPokemon7, imgPokemon7_darkmode, imgPokemon8, imgPokemon8_darkmode, imgPokemon9, imgPokemon9_darkmode} from './import/img'
+import {  Home, Generacion_1, Generacion_2, Generacion_3, Generacion_4, Generacion_5, Generacion_6, Generacion_7, Generacion_8, Generacion_9} from "./import/enlace"
 
-import Home from '../screens/Home';
-import Generacion_1 from '../screens/Generacion_1';
-import Generacion_2 from '../screens/Generacion_2';
-import Generacion_3 from '../screens/Generacion_3';
-import Generacion_4 from '../screens/Generacion_4';
-import Generacion_5 from '../screens/Generacion_5';
-import Generacion_6 from '../screens/Generacion_6';
-import Generacion_7 from '../screens/Generacion_7';
-import Generacion_8 from '../screens/Generacion_8';
-import Generacion_9 from '../screens/Generacion_9';
 
 const links = [
   {
@@ -43,7 +15,7 @@ const links = [
   {
     id: 2,
     width: "20%",
-    name: "Generacion I",
+    name: "Generation I",
     legendary: imgPokemon1,
     legendary2: imgPokemon1_darkmode,
     href: "/Generacion_1",
@@ -52,16 +24,16 @@ const links = [
   {
     id: 3,
     width: "20%",
-    name: "Generacion II",
+    name: "Generation II",
     legendary: imgPokemon2_darkmode,
     legendary2: imgPokemon2,
-    href: "/Generacion_2",
+    href: "/Generation_2",
     component: Generacion_2
   },
   {
     id: 4,
     width: "20%",
-    name: "Generacion III",
+    name: "Generation III",
     legendary: imgPokemon3,
     legendary2: imgPokemon3_darkmode,
     href: "/Generacion_3",
@@ -70,7 +42,7 @@ const links = [
   {
     id: 5,
     width: "20%",
-    name: "Generacion IV",
+    name: "Generation IV",
     legendary: imgPokemon4,
     legendary2: imgPokemon4_darkmode,
     href: "/Generacion_4",
@@ -79,7 +51,7 @@ const links = [
   {
     id: 6,
     width: "20%",
-    name: "Generacion V",
+    name: "Generation V",
     legendary: imgPokemon5_darkmode,
     legendary2: imgPokemon5,
     href: "/Generacion_5",
@@ -88,7 +60,7 @@ const links = [
   {
     id: 7,
     width: "20%",
-    name: "Generacion VI",
+    name: "Generation VI",
     legendary: imgPokemon6,
     legendary2: imgPokemon6_darkmode,
     href: "/Generacion_6",
@@ -97,7 +69,7 @@ const links = [
   {
     id: 8,
     width: "20%",
-    name: "Generacion VII",
+    name: "Generation VII",
     legendary: imgPokemon7,
     legendary2: imgPokemon7_darkmode,
     href: "/Generacion_7",
@@ -106,7 +78,7 @@ const links = [
   {
     id: 9,
     width: "20%",
-    name: "Generacion VIII",
+    name: "Generation VIII",
     legendary: imgPokemon8,
     legendary2: imgPokemon8_darkmode,
     href: "/Generacion_8",
@@ -115,7 +87,7 @@ const links = [
   {
     id: 10,
     width: "20%",
-    name: "Generacion IX",
+    name: "Generation IX",
     legendary: imgPokemon9,
     legendary2: imgPokemon9_darkmode,
     href: "/Generacion_9",
