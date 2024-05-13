@@ -1,19 +1,28 @@
 import { Route, Routes, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import links from "../data/links";
+import NavbarLinks from "../data/links"; // Cambiamos la importación
 import pokemonImage from '../assets/img/pokemon.png';
 import pokeball from '../assets/img/pokebola.png'
 import Buscador from "./buscador/Buscador";
-import "../data/links"
+import { useTranslation } from "react-i18next";
+import i18next from "../translation/i18next"; 
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default function Navbar() {
-
   const location = useLocation();
+  const { t } = useTranslation();
+
+  function changeLanguage(language) {
+    i18next.changeLanguage(language);
+    // alert(language);
+  }
+
+ 
   const [sidebar, setSidebar] = useState({
     showMenu: false,
     miniSidebar: localStorage.getItem("miniSidebar") === "true"
   });
-  const [darkMode, setDarkMode] = useState(false); // Inicialmente se establece como falso
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -99,13 +108,13 @@ export default function Navbar() {
           </div>
         )}
           <div>
-            <Buscador miniSidebar={sidebar.miniSidebar} />
+            <Buscador i18n={i18next} miniSidebar={sidebar.miniSidebar} darkMode={darkMode}/>
           </div>
 
           <div className="linea"></div>
           <nav className="navegacion mt-3">
             <ul>
-              {links.map((nav) => (
+              {NavbarLinks().map((nav) => ( // Cambiamos el nombre de la función
                 <li key={nav.id}>
                   <Link
                     onClick={toggleSidebar}
@@ -129,7 +138,7 @@ export default function Navbar() {
 
             <div className="modo-oscuro" onClick={toggleDarkMode}>
               <div className="info">
-                <span>Dark Mode</span>
+                <span>{t('navbar_footer.dark_mode')}</span>
               </div>
               <div className="switch">
                 <div className={`base ${darkMode ? "dark-mode" : ""}`}>
@@ -139,12 +148,22 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                {t('navbar_footer.select_language')}
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => changeLanguage('en')}>English</Dropdown.Item>
+                <Dropdown.Item onClick={() => changeLanguage('es')}>Español</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </div>
 
         <main className={sidebar.miniSidebar ? "min-main" : ""}>
           <Routes>
-            {links.map((ruta) => (
+            {NavbarLinks().map((ruta) => ( // Cambiamos el nombre de la función
               <Route key={ruta.id} path={ruta.href} element={<ruta.component />} />
             ))}
           </Routes>

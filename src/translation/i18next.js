@@ -1,27 +1,27 @@
-// import i18next from "i18next";
-// import { initReactI18next } from "react-i18next";
-// import globalEn from './en/global.json'
-// import globalEs from './es/global.json'
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
+import globalEn from './en/global.json'
+import globalEs from './es/global.json'
 
-// // the translations
-// const resources = {
-//     en: {
-//       global: globalEn
-//     },
-//     es: {
-//       global: globalEs
-//     }
-//   };
+const resources = {
+    en: {
+      translation: globalEn
+    },
+    es: {
+      translation: globalEs
+    }
+  };
   
-//   i18next
-//     .use(initReactI18next)
-//     .init({
-//       resources,
-//       lng: 'en',
-//       keySeparator: false,
-//       interpolation: {
-//         escapeValue: false // react already safes from xss
-//       }
-//     });
+  i18next
+    .use(initReactI18next)
+    .init({
+      resources,
+      lng: 'en', // Idioma por defecto
+      fallbackLng: 'en',
   
-//   export default i18next;
+      interpolation: {
+        escapeValue: false
+      }
+    });
+  
+  export default i18next;

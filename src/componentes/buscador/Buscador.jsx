@@ -3,9 +3,11 @@ import Select from "react-select";
 import { getPokemonList } from "../../assets/conexion/apiPokemon";
 import PokemonModal from "../modal/ModalPokemon"; // Importa el componente del modal
 import ModalAlert from "../modal/ModalAlert";
+import { useTranslation } from "react-i18next";
+// import i18next from '../../translation/i18next'
+export default function Buscador({ i18n, miniSidebar, darkMode }) {
 
-export default function Buscador({ miniSidebar }) {
-
+  const { t } = useTranslation();
 
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -44,7 +46,7 @@ export default function Buscador({ miniSidebar }) {
           }))}
           onChange={handleSelectChange}
           value={selectedPokemon}
-          placeholder="Select Pokemon"
+          placeholder={t('navbar_header.select')}
           className="mb-2"
           menuPosition="fixed"
         />
@@ -52,7 +54,7 @@ export default function Buscador({ miniSidebar }) {
       {!miniSidebar && (
         <button className="boton" onClick={handleSearch}>
           <ion-icon name="search"></ion-icon>
-          <span>search</span>
+          <span>{t('navbar_header.search')}</span>
         </button>
       )}
       
@@ -61,7 +63,8 @@ export default function Buscador({ miniSidebar }) {
       {selectedPokemon && (
         <PokemonModal
           selectedPokemon={selectedPokemon}
-          onClose={() => setSelectedPokemon(null)}
+            onClose={() => setSelectedPokemon(null)}
+            darkMode={darkMode}
         />
       )}
     </>

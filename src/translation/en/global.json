@@ -18,5 +18,27 @@
     "navbar_footer":{
         "dark_mode": "Dark Mode",
         "select_language": "Select language"
+    },
+    "modal": {
+        "data": {
+            "tittle": "Main Data",
+            "pokemonid": "Pokemon ID",
+            "type": "Type",
+            "weight": "Weight",
+            "abilities": "Abilities"
+        },
+        "statistics":{
+            "tittle": "Basic Statistics",
+            "hp": "HP",
+            "attack": "Attack",
+            "attack_e": "Attack E",
+            "defense": "Defense",
+            "defense_e": "Defense E",
+            "speed": "Speed"
+        },
+        "designs": {
+            "g_design": "Generation Design"
+        }
+
     }
 }
