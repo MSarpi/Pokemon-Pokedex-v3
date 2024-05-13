@@ -5,7 +5,10 @@ import './style/modal.css'
 export default function PokemonModal({selectedPokemon, onClose, darkMode}) {
   const [loading, setLoading] = useState(true);
   const [pokemonInfo, setPokemonInfo] = useState(null);
-
+  
+  const handleClose = () => {
+    onClose();
+  };
   useEffect(() => {
     const getPokemonInfo = async (id) => {
       setLoading(true); // Aquí establecemos loading en true para mostrar "Load"
@@ -23,12 +26,8 @@ export default function PokemonModal({selectedPokemon, onClose, darkMode}) {
   const { t } = useTranslation();
 
   return (
-    <Modal
-  size="xl"
-  show={selectedPokemon !== null}
-  onHide={onClose}
-  dialogClassName={darkMode ? "dark-mode" : ""}
->
+    <Modal size="xl" show={!!selectedPokemon} onHide={handleClose} dialogClassName={darkMode ? "modal-dark" : ""}>
+      
       <Modal.Header closeButton className="header-footer">
         <Modal.Title>
           {loading ? (
@@ -79,7 +78,7 @@ export default function PokemonModal({selectedPokemon, onClose, darkMode}) {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6}>
             <div className="background-stats">
-              <h4 style={{ textAlign: "center" }}>{t('modal.data.tittle')}</h4>
+              <h4 style={{ textAlign: "center", marginTop: "10px" }}>{t('modal.data.tittle')}</h4>
               <hr/>
 
               <div>

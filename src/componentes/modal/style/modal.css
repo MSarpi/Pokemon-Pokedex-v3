@@ -3,37 +3,38 @@
     --color-text-header: rgb(237, 237, 237);
     --color-background-stats: rgb(255,203,5);
     --color-header-footer-modal: rgb(0, 78, 167);
+    --color-border: rgb(42, 116, 186);
 }
 
-.dark-mode{
+.modal-dark{
     --background-modal-pokemon: rgb(237, 237, 237);
     --color-text-header: rgb(237, 237, 237);
     --color-background-stats: rgb(85,85,85);
     --color-header-footer-modal: rgb(44, 45, 49);
+    --color-border: rgb(56, 56, 56);
 }
 
-.dark-mode .header-footer{
+.modal-dark .header-footer {
     color: var(--color-text-header);
     background-color: var(--color-header-footer-modal);
 }
+
 .header-footer{
     color: var(--color-text-header);
     background-color: var(--color-header-footer-modal);
 }
 
 .background-stats{
-    padding: 1rem;
     background-color: var(--color-background-stats);
     border-radius: 1rem;
-    border: 2px solid #2A74BA;
-    color: white;
-}
+    border: 2px solid var(--color-border);
+    color: white; 
+} 
 
-.dark-mode .background-stats {
-    padding: 1rem;
+.background-stats .modal-dark {
     background-color: var(--color-background-stats);
     border-radius: 1rem;
-    border: 2px solid #6d6d6d;
+    border: 2px solid var(--color-border);
     color: white;
 }
 
@@ -41,6 +42,6 @@
     background-color: var(--background-modal-pokemon);
 }
 
-.dark-mode .background-info{
+.background-info .modal-dark{
     background-color: var(--background-modal-pokemon);
 }
