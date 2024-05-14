@@ -5,7 +5,7 @@ import PokemonModal from "../modal/ModalPokemon"; // Importa el componente del m
 import ModalAlert from "../modal/ModalAlert";
 import { useTranslation } from "react-i18next";
 // import i18next from '../../translation/i18next'
-export default function Buscador({ i18n, miniSidebar, darkMode }) {
+export default function Buscador({ miniSidebar, darkMode }) {
 
   const { t } = useTranslation();
 
@@ -63,8 +63,8 @@ export default function Buscador({ i18n, miniSidebar, darkMode }) {
       {selectedPokemon && (
         <PokemonModal
           selectedPokemon={selectedPokemon}
-            onClose={() => setSelectedPokemon(null)}
-            darkMode={darkMode}
+          onClose={() => setSelectedPokemon(null)}
+          darkMode={darkMode}
         />
       )}
     </>

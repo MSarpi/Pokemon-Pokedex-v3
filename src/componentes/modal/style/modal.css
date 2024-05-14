@@ -45,3 +45,39 @@
 .background-info .modal-dark{
     background-color: var(--background-modal-pokemon);
 }
+
+.text-type-1{
+    padding: 4px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.text-type-2{
+    padding: 4px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.text-type-only{
+    padding: 4px 4px 4px 4px;
+    border-radius: 10px;
+}
+
+.custom-progress-bar {
+    border: 1px solid #70707085; /* Añade un borde negro */
+  }
+
+.pokemon-design-config{
+    margin: 0rem 0rem 1rem 0rem;
+}
+
+.swiper-img {
+    width: 90%;
+    height: auto;
+}
+
+/* .card-data-pokemon{
+    padding: 0.5rem;
+    border: 2px solid #2A74BA;
+    border-radius: 10px;
+    background-color: #FFCB05;
+    margin-bottom: 1rem;
+} */

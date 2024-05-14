@@ -24,20 +24,21 @@
             "tittle": "Datos Principales",
             "pokemonid": "ID Pokemon",
             "type": "Tipo",
+            "height": "Altura",
             "weight": "Peso",
             "abilities": "Habilidades"
         },
         "statistics":{
-            "tittle": "Estadisticas Basicas",
+            "tittle": "Estadísticas Básicas",
             "hp": "HP",
             "attack": "Ataque",
-            "attack_e": "Ataque E",
+            "attack_e": "Ataque E.",
             "defense": "Defensa",
-            "defense_e": "Defensa E",
+            "defense_e": "Defensa E.",
             "speed": "Velocidad"
         },
         "designs": {
-            "g_design": "Diseño de generacion"
+            "g_design": "Diseño de generación"
         }
 
     }

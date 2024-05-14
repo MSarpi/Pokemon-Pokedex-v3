@@ -24,6 +24,7 @@
             "tittle": "Main Data",
             "pokemonid": "Pokemon ID",
             "type": "Type",
+            "height": "Height",
             "weight": "Weight",
             "abilities": "Abilities"
         },
@@ -31,9 +32,9 @@
             "tittle": "Basic Statistics",
             "hp": "HP",
             "attack": "Attack",
-            "attack_e": "Attack E",
+            "attack_e": "S. Attack",
             "defense": "Defense",
-            "defense_e": "Defense E",
+            "defense_e": "S. Defense",
             "speed": "Speed"
         },
         "designs": {

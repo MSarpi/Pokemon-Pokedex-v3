@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import i18next from "../translation/i18next"; 
 import Dropdown from 'react-bootstrap/Dropdown';
 
+
 export default function Navbar() {
   const location = useLocation();
   const { t } = useTranslation();
