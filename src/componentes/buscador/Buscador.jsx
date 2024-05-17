@@ -11,6 +11,7 @@ export default function Buscador({ miniSidebar, darkMode }) {
 
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  
   const [showAlert, setShowAlert] = useState(false); 
 
   const handleShowModalAlert = () => setShowAlert(true);

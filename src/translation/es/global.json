@@ -39,6 +39,9 @@
         },
         "designs": {
             "g_design": "Diseño de generación"
+        },
+        "evolution": {
+            "tittle": "Evoluciónes"
         }
 
     }

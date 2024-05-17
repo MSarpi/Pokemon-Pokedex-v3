@@ -74,6 +74,16 @@
     height: auto;
 }
 
+.evolution-chain-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .evolution-step {
+    text-align: center;
+  }
+
 /* .card-data-pokemon{
     padding: 0.5rem;
     border: 2px solid #2A74BA;
@@ -81,3 +91,11 @@
     background-color: #FFCB05;
     margin-bottom: 1rem;
 } */
+
+
+
+@media (max-width: 991px){
+    .pokemon-chain{
+        margin-bottom: 1rem;
+    }
+  }

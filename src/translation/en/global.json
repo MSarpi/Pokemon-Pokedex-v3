@@ -39,6 +39,9 @@
         },
         "designs": {
             "g_design": "Generation Design"
+        },
+        "evolution": {
+            "tittle": "Evolution's"
         }
 
     }

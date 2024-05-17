@@ -15,7 +15,7 @@ export default function SwiperSlides({pokemonInfo}) {
           <Swiper
             slidesPerView={4}
             centeredSlides={true}
-            spaceBetween={0}
+            spaceBetween={6}
             grabCursor={true}
             
             className="mySwiper"
